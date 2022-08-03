@@ -9,8 +9,8 @@ namespace CheckoutKata
     public class StockUnit
     {
         public string SkuName { get; set; }
-        public int Price { get; set; }
-        public int NumberOfItems { get; set; }
-        public int DiscountPrice { get; set; }
+        public int UnitPrice { get; set; }
+        public int Volume { get; set; }
+        public int SpecialPrice { get; set; }
     }
 }

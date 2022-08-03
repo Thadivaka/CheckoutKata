@@ -14,10 +14,10 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
-                new StockUnit { SkuName = "C", Price = 20 },
-                new StockUnit { SkuName = "D", Price = 15 }
+                new StockUnit { SkuName = "A", UnitPrice = 50, Volume = 3, SpecialPrice = 130 },
+                new StockUnit { SkuName = "B", UnitPrice = 30, Volume = 2, SpecialPrice = 45 },
+                new StockUnit { SkuName = "C", UnitPrice = 20 },
+                new StockUnit { SkuName = "D", UnitPrice = 15 }
             };
             ICheckout checkout = new Checkout(rules);
             checkout.Scan("A");
@@ -32,10 +32,10 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
-                new StockUnit { SkuName = "C", Price = 20 },
-                new StockUnit { SkuName = "D", Price = 15 }
+                new StockUnit { SkuName = "A", UnitPrice = 50, Volume = 3, SpecialPrice = 130 },
+                new StockUnit { SkuName = "B", UnitPrice = 30, Volume = 2, SpecialPrice = 45 },
+                new StockUnit { SkuName = "C", UnitPrice = 20 },
+                new StockUnit { SkuName = "D", UnitPrice = 15 }
             };
             ICheckout checkout = new Checkout(rules);
             checkout.Scan("A");
@@ -51,10 +51,10 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
-                new StockUnit { SkuName = "C", Price = 20 },
-                new StockUnit { SkuName = "D", Price = 15 }
+                new StockUnit { SkuName = "A", UnitPrice = 50, Volume = 3, SpecialPrice = 130 },
+                new StockUnit { SkuName = "B", UnitPrice = 30, Volume = 2, SpecialPrice = 45 },
+                new StockUnit { SkuName = "C", UnitPrice = 20 },
+                new StockUnit { SkuName = "D", UnitPrice = 15 }
             };
             ICheckout checkout = new Checkout(rules);
             checkout.Scan("B");
@@ -69,10 +69,10 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
-                new StockUnit { SkuName = "C", Price = 20 },
-                new StockUnit { SkuName = "D", Price = 15 }
+                new StockUnit { SkuName = "A", UnitPrice = 50, Volume = 3, SpecialPrice = 130 },
+                new StockUnit { SkuName = "B", UnitPrice = 30, Volume = 2, SpecialPrice = 45 },
+                new StockUnit { SkuName = "C", UnitPrice = 20 },
+                new StockUnit { SkuName = "D", UnitPrice = 15 }
             };
             ICheckout checkout = new Checkout(rules);
             checkout.Scan("C");
@@ -87,10 +87,10 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
-                new StockUnit { SkuName = "C", Price = 20 },
-                new StockUnit { SkuName = "D", Price = 15 }
+                new StockUnit { SkuName = "A", UnitPrice = 50, Volume = 3, SpecialPrice = 130 },
+                new StockUnit { SkuName = "B", UnitPrice = 30, Volume = 2, SpecialPrice = 45 },
+                new StockUnit { SkuName = "C", UnitPrice = 20 },
+                new StockUnit { SkuName = "D", UnitPrice = 15 }
             };
             ICheckout checkout = new Checkout(rules);
             checkout.Scan("D");
@@ -104,10 +104,10 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
-                new StockUnit { SkuName = "C", Price = 20 },
-                new StockUnit { SkuName = "D", Price = 15 }
+                new StockUnit { SkuName = "A", UnitPrice = 50, Volume = 3, SpecialPrice = 130 },
+                new StockUnit { SkuName = "B", UnitPrice = 30, Volume = 2, SpecialPrice = 45 },
+                new StockUnit { SkuName = "C", UnitPrice = 20 },
+                new StockUnit { SkuName = "D", UnitPrice = 15 }
             };
             ICheckout checkout = new Checkout(rules);
             checkout.Scan("A");
@@ -124,10 +124,10 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
-                new StockUnit { SkuName = "C", Price = 20 },
-                new StockUnit { SkuName = "D", Price = 15 }
+                new StockUnit { SkuName = "A", UnitPrice = 50, Volume = 3, SpecialPrice = 130 },
+                new StockUnit { SkuName = "B", UnitPrice = 30, Volume = 2, SpecialPrice = 45 },
+                new StockUnit { SkuName = "C", UnitPrice = 20 },
+                new StockUnit { SkuName = "D", UnitPrice = 15 }
             };
             ICheckout checkout = new Checkout(rules);
             checkout.Scan("B");
@@ -142,10 +142,10 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
-                new StockUnit { SkuName = "C", Price = 20 },
-                new StockUnit { SkuName = "D", Price = 15 }
+                new StockUnit { SkuName = "A", UnitPrice = 50, Volume = 3, SpecialPrice = 130 },
+                new StockUnit { SkuName = "B", UnitPrice = 30, Volume = 2, SpecialPrice = 45 },
+                new StockUnit { SkuName = "C", UnitPrice = 20 },
+                new StockUnit { SkuName = "D", UnitPrice = 15 }
             };
             ICheckout checkout = new Checkout(rules);
             checkout.Scan("A");
@@ -163,10 +163,10 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
-                new StockUnit { SkuName = "C", Price = 20 },
-                new StockUnit { SkuName = "D", Price = 15 }
+                new StockUnit { SkuName = "A", UnitPrice = 50, Volume = 3, SpecialPrice = 130 },
+                new StockUnit { SkuName = "B", UnitPrice = 30, Volume = 2, SpecialPrice = 45 },
+                new StockUnit { SkuName = "C", UnitPrice = 20 },
+                new StockUnit { SkuName = "D", UnitPrice = 15 }
             };
             ICheckout checkout = new Checkout(rules);
             checkout.Scan("A");
@@ -184,10 +184,10 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
-                new StockUnit { SkuName = "C", Price = 20 },
-                new StockUnit { SkuName = "D", Price = 15 }
+                new StockUnit { SkuName = "A", UnitPrice = 50, Volume = 3, SpecialPrice = 130 },
+                new StockUnit { SkuName = "B", UnitPrice = 30, Volume = 2, SpecialPrice = 45 },
+                new StockUnit { SkuName = "C", UnitPrice = 20 },
+                new StockUnit { SkuName = "D", UnitPrice = 15 }
             };
             ICheckout checkout = new Checkout(rules);
             checkout.Scan("A");
@@ -206,10 +206,10 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
-                new StockUnit { SkuName = "C", Price = 20 },
-                new StockUnit { SkuName = "D", Price = 15 }
+                new StockUnit { SkuName = "A", UnitPrice = 50, Volume = 3, SpecialPrice = 130 },
+                new StockUnit { SkuName = "B", UnitPrice = 30, Volume = 2, SpecialPrice = 45 },
+                new StockUnit { SkuName = "C", UnitPrice = 20 },
+                new StockUnit { SkuName = "D", UnitPrice = 15 }
             };
             ICheckout checkout = new Checkout(rules);
             checkout.Scan("A");
@@ -229,10 +229,10 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
-                new StockUnit { SkuName = "C", Price = 20 },
-                new StockUnit { SkuName = "D", Price = 15 }
+                new StockUnit { SkuName = "A", UnitPrice = 50, Volume = 3, SpecialPrice = 130 },
+                new StockUnit { SkuName = "B", UnitPrice = 30, Volume = 2, SpecialPrice = 45 },
+                new StockUnit { SkuName = "C", UnitPrice = 20 },
+                new StockUnit { SkuName = "D", UnitPrice = 15 }
             };
             ICheckout checkout = new Checkout(rules);
             checkout.Scan("A");
@@ -254,10 +254,10 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 1, DiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
-                new StockUnit { SkuName = "C", Price = 20 },
-                new StockUnit { SkuName = "D", Price = 15 }
+                new StockUnit { SkuName = "A", UnitPrice = 50, Volume = 1, SpecialPrice = 130 },
+                new StockUnit { SkuName = "B", UnitPrice = 30, Volume = 2, SpecialPrice = 45 },
+                new StockUnit { SkuName = "C", UnitPrice = 20 },
+                new StockUnit { SkuName = "D", UnitPrice = 15 }
             };
             ICheckout checkout = new Checkout(rules);
             checkout.Scan("A");
@@ -277,10 +277,10 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 1, DiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
-                new StockUnit { SkuName = "C", Price = 20 },
-                new StockUnit { SkuName = "D", Price = 15 }
+                new StockUnit { SkuName = "A", UnitPrice = 50, Volume = 1, SpecialPrice = 130 },
+                new StockUnit { SkuName = "B", UnitPrice = 30, Volume = 2, SpecialPrice = 45 },
+                new StockUnit { SkuName = "C", UnitPrice = 20 },
+                new StockUnit { SkuName = "D", UnitPrice = 15 }
             };
             ICheckout checkout = new Checkout(rules);
             checkout.Scan("A");
@@ -301,10 +301,10 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
-                new StockUnit { SkuName = "C", Price = 20, NumberOfItems = 4, DiscountPrice = 60 },
-                new StockUnit { SkuName = "D", Price = 15 }
+                new StockUnit { SkuName = "A", UnitPrice = 50, Volume = 3, SpecialPrice = 130 },
+                new StockUnit { SkuName = "B", UnitPrice = 30, Volume = 2, SpecialPrice = 45 },
+                new StockUnit { SkuName = "C", UnitPrice = 20, Volume = 4, SpecialPrice = 60 },
+                new StockUnit { SkuName = "D", UnitPrice = 15 }
             };
             ICheckout checkout = new Checkout(rules);
             checkout.Scan("A");
@@ -324,10 +324,10 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
-                new StockUnit { SkuName = "C", Price = 20, NumberOfItems = 4, DiscountPrice = 60 },
-                new StockUnit { SkuName = "D", Price = 15, NumberOfItems = 5, DiscountPrice = 55 }
+                new StockUnit { SkuName = "A", UnitPrice = 50, Volume = 3, SpecialPrice = 130 },
+                new StockUnit { SkuName = "B", UnitPrice = 30, Volume = 2, SpecialPrice = 45 },
+                new StockUnit { SkuName = "C", UnitPrice = 20, Volume = 4, SpecialPrice = 60 },
+                new StockUnit { SkuName = "D", UnitPrice = 15, Volume = 5, SpecialPrice = 55 }
             };
             ICheckout checkout = new Checkout(rules);
             checkout.Scan("A");
@@ -350,11 +350,11 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
-                new StockUnit { SkuName = "C", Price = 20, NumberOfItems = 4, DiscountPrice = 60 },
-                new StockUnit { SkuName = "D", Price = 15, NumberOfItems = 5, DiscountPrice = 55 },
-                new StockUnit { SkuName = "E", Price = 100 }
+                new StockUnit { SkuName = "A", UnitPrice = 50, Volume = 3, SpecialPrice = 130 },
+                new StockUnit { SkuName = "B", UnitPrice = 30, Volume = 2, SpecialPrice = 45 },
+                new StockUnit { SkuName = "C", UnitPrice = 20, Volume = 4, SpecialPrice = 60 },
+                new StockUnit { SkuName = "D", UnitPrice = 15, Volume = 5, SpecialPrice = 55 },
+                new StockUnit { SkuName = "E", UnitPrice = 100 }
             };
             ICheckout checkout = new Checkout(rules);
             checkout.Scan("A");
@@ -382,11 +382,11 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
-                new StockUnit { SkuName = "C", Price = 20, NumberOfItems = 4, DiscountPrice = 60 },
-                new StockUnit { SkuName = "D", Price = 15, NumberOfItems = 5, DiscountPrice = 55 },
-                new StockUnit { SkuName = "E", Price = 100, NumberOfItems = 2, DiscountPrice = 170 }
+                new StockUnit { SkuName = "A", UnitPrice = 50, Volume = 3, SpecialPrice = 130 },
+                new StockUnit { SkuName = "B", UnitPrice = 30, Volume = 2, SpecialPrice = 45 },
+                new StockUnit { SkuName = "C", UnitPrice = 20, Volume = 4, SpecialPrice = 60 },
+                new StockUnit { SkuName = "D", UnitPrice = 15, Volume = 5, SpecialPrice = 55 },
+                new StockUnit { SkuName = "E", UnitPrice = 100, Volume = 2, SpecialPrice = 170 }
             };
             ICheckout checkout = new Checkout(rules);
             checkout.Scan("A");
@@ -415,10 +415,10 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
-                new StockUnit { SkuName = "C", Price = 20, NumberOfItems = 4, DiscountPrice = 60 },
-                new StockUnit { SkuName = "D", Price = 15, NumberOfItems = 5, DiscountPrice = 55 }
+                new StockUnit { SkuName = "A", UnitPrice = 50, Volume = 3, SpecialPrice = 130 },
+                new StockUnit { SkuName = "B", UnitPrice = 30, Volume = 2, SpecialPrice = 45 },
+                new StockUnit { SkuName = "C", UnitPrice = 20, Volume = 4, SpecialPrice = 60 },
+                new StockUnit { SkuName = "D", UnitPrice = 15, Volume = 5, SpecialPrice = 55 }
             };
             ICheckout checkout = new Checkout(rules);
             checkout.Scan("A");
@@ -433,10 +433,10 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
-                new StockUnit { SkuName = "C", Price = 20, NumberOfItems = 4, DiscountPrice = 60 },
-                new StockUnit { SkuName = "D", Price = 15, NumberOfItems = 5, DiscountPrice = 55 }
+                new StockUnit { SkuName = "A", UnitPrice = 50, Volume = 3, SpecialPrice = 130 },
+                new StockUnit { SkuName = "B", UnitPrice = 30, Volume = 2, SpecialPrice = 45 },
+                new StockUnit { SkuName = "C", UnitPrice = 20, Volume = 4, SpecialPrice = 60 },
+                new StockUnit { SkuName = "D", UnitPrice = 15, Volume = 5, SpecialPrice = 55 }
             };
             ICheckout checkout = new Checkout(rules);
             checkout.Scan("A");
@@ -451,10 +451,10 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
-                new StockUnit { SkuName = "C", Price = 20, NumberOfItems = 4, DiscountPrice = 60 },
-                new StockUnit { SkuName = "D", Price = 15, NumberOfItems = 5, DiscountPrice = 55 }
+                new StockUnit { SkuName = "A", UnitPrice = 50, Volume = 3, SpecialPrice = 130 },
+                new StockUnit { SkuName = "B", UnitPrice = 30, Volume = 2, SpecialPrice = 45 },
+                new StockUnit { SkuName = "C", UnitPrice = 20, Volume = 4, SpecialPrice = 60 },
+                new StockUnit { SkuName = "D", UnitPrice = 15, Volume = 5, SpecialPrice = 55 }
             };
             ICheckout checkout = new Checkout(rules);
             checkout.Scan("F");
@@ -468,10 +468,10 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
-                new StockUnit { SkuName = "C", Price = 20, NumberOfItems = 4, DiscountPrice = 60 },
-                new StockUnit { SkuName = "D", Price = 15, NumberOfItems = 5, DiscountPrice = 55 }
+                new StockUnit { SkuName = "A", UnitPrice = 50, Volume = 3, SpecialPrice = 130 },
+                new StockUnit { SkuName = "B", UnitPrice = 30, Volume = 2, SpecialPrice = 45 },
+                new StockUnit { SkuName = "C", UnitPrice = 20, Volume = 4, SpecialPrice = 60 },
+                new StockUnit { SkuName = "D", UnitPrice = 15, Volume = 5, SpecialPrice = 55 }
             };
             ICheckout checkout = new Checkout(rules);
 
@@ -484,10 +484,10 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
-                new StockUnit { SkuName = "C", Price = 20 },
-                new StockUnit { SkuName = "D", Price = 15 }
+                new StockUnit { SkuName = "A", UnitPrice = 50, Volume = 3, SpecialPrice = 130 },
+                new StockUnit { SkuName = "B", UnitPrice = 30, Volume = 2, SpecialPrice = 45 },
+                new StockUnit { SkuName = "C", UnitPrice = 20 },
+                new StockUnit { SkuName = "D", UnitPrice = 15 }
             };
             ICheckout checkout = new Checkout(rules);
             checkout.Scan("A");
