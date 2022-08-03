@@ -10,7 +10,7 @@ namespace CheckoutKata
     {
         public string SkuName { get; set; }
         public int Price { get; set; }
-        public int SpecialDiscountCount { get; set; }
-        public int SpecialDiscountPrice { get; set; }
+        public int NumberOfItems { get; set; }
+        public int DiscountPrice { get; set; }
     }
 }

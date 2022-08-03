@@ -18,11 +18,31 @@ namespace CheckoutKata
         public int GetTotalPrice()
         {
             int totalPrice = 0;
-            foreach(var item in m_ScanItems)
+            var scanData = (from c in m_ScanItems
+                            group c by c into g
+                            select new Scan { Sku = g.Key, Count = g.Count() }).ToList();
+            foreach (var scanItem in scanData)
             {
-                var itemPrice = _stockUnits.Where(s => s.SkuName == item).Select(x => x.Price).FirstOrDefault();
+                if (_stockUnits.Any(k => k.SkuName == scanItem.Sku))
+                {
+                    var items = _stockUnits.Where(km => km.SkuName == scanItem.Sku)
+                                                    .Select(x => new { x.Price, x.NumberOfItems, x.DiscountPrice }).FirstOrDefault();
+                    if (items.NumberOfItems > 0)
+                    {
+                        var discountCount = scanItem.Count / items.NumberOfItems;
+                        var nonDisountCount = scanItem.Count % items.NumberOfItems;
 
-                totalPrice += itemPrice;
+                        var itemSpecialPrice = discountCount * items.DiscountPrice;
+                        var itemNormalPrice = nonDisountCount * items.Price;
+
+                        totalPrice += itemSpecialPrice + itemNormalPrice;
+                    }
+                    else
+                    {
+                        totalPrice += scanItem.Count * items.Price;
+                    }
+
+                }
             }
             return totalPrice;
         }

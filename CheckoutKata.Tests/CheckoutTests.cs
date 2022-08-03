@@ -13,8 +13,8 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, SpecialDiscountCount = 3, SpecialDiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, SpecialDiscountCount = 2, SpecialDiscountPrice = 45 },
+                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
+                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
                 new StockUnit { SkuName = "C", Price = 20 },
                 new StockUnit { SkuName = "D", Price = 15 }
             };
@@ -31,8 +31,8 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, SpecialDiscountCount = 3, SpecialDiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, SpecialDiscountCount = 2, SpecialDiscountPrice = 45 },
+                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
+                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
                 new StockUnit { SkuName = "C", Price = 20 },
                 new StockUnit { SkuName = "D", Price = 15 }
             };
@@ -50,8 +50,8 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, SpecialDiscountCount = 3, SpecialDiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, SpecialDiscountCount = 2, SpecialDiscountPrice = 45 },
+                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
+                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
                 new StockUnit { SkuName = "C", Price = 20 },
                 new StockUnit { SkuName = "D", Price = 15 }
             };
@@ -68,8 +68,8 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, SpecialDiscountCount = 3, SpecialDiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, SpecialDiscountCount = 2, SpecialDiscountPrice = 45 },
+                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
+                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
                 new StockUnit { SkuName = "C", Price = 20 },
                 new StockUnit { SkuName = "D", Price = 15 }
             };
@@ -86,8 +86,8 @@ namespace CheckoutKata.Tests
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
             {
-                new StockUnit { SkuName = "A", Price = 50, SpecialDiscountCount = 3, SpecialDiscountPrice = 130 },
-                new StockUnit { SkuName = "B", Price = 30, SpecialDiscountCount = 2, SpecialDiscountPrice = 45 },
+                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
+                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
                 new StockUnit { SkuName = "C", Price = 20 },
                 new StockUnit { SkuName = "D", Price = 15 }
             };
@@ -97,6 +97,65 @@ namespace CheckoutKata.Tests
             var result = checkout.GetTotalPrice();
 
             Assert.AreEqual(result, 15);
+        }
+        [TestMethod]
+        public void GetTotalPrice_AddingSingle_Sku_A_3()
+        {
+            IEnumerable<StockUnit> rules = new List<StockUnit>
+            {
+                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
+                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
+                new StockUnit { SkuName = "C", Price = 20 },
+                new StockUnit { SkuName = "D", Price = 15 }
+            };
+            ICheckout checkout = new Checkout(rules);
+            checkout.Scan("A");
+            checkout.Scan("A");
+            checkout.Scan("A");
+
+            var result = checkout.GetTotalPrice();
+
+            Assert.AreEqual(result, 130);
+        }
+
+        [TestMethod]
+        public void GetTotalPrice_AddingSingle_Sku_B_2()
+        {
+            IEnumerable<StockUnit> rules = new List<StockUnit>
+            {
+                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
+                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
+                new StockUnit { SkuName = "C", Price = 20 },
+                new StockUnit { SkuName = "D", Price = 15 }
+            };
+            ICheckout checkout = new Checkout(rules);
+            checkout.Scan("B");
+            checkout.Scan("B");
+
+            var result = checkout.GetTotalPrice();
+
+            Assert.AreEqual(result, 45);
+        }
+        [TestMethod]
+        public void GetTotalPrice_AddingSingle_Sku_A_3_B_2()
+        {
+            IEnumerable<StockUnit> rules = new List<StockUnit>
+            {
+                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
+                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
+                new StockUnit { SkuName = "C", Price = 20 },
+                new StockUnit { SkuName = "D", Price = 15 }
+            };
+            ICheckout checkout = new Checkout(rules);
+            checkout.Scan("A");
+            checkout.Scan("A");
+            checkout.Scan("A");
+            checkout.Scan("B");
+            checkout.Scan("B");
+
+            var result = checkout.GetTotalPrice();
+
+            Assert.AreEqual(result, 175);
         }
     }
 }
