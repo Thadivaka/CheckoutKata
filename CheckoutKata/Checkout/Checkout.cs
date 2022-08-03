@@ -23,11 +23,11 @@ namespace CheckoutKata
                             select new Scan { Sku = g.Key, Count = g.Count() }).ToList();
             foreach (var scanItem in scanData)
             {
-                if (_stockUnits.Any(k => k.SkuName == scanItem.Sku))
+                if (_stockUnits.Any(k => k.SkuName.ToLower() == scanItem.Sku.ToLower()))
                 {
-                    var items = _stockUnits.Where(km => km.SkuName == scanItem.Sku)
+                    var items = _stockUnits.Where(km => km.SkuName.ToLower() == scanItem.Sku.ToLower())
                                                     .Select(x => new { x.Price, x.NumberOfItems, x.DiscountPrice }).FirstOrDefault();
-                    if (items.NumberOfItems > 0)
+                    if (items.NumberOfItems > 1)
                     {
                         var discountCount = scanItem.Count / items.NumberOfItems;
                         var nonDisountCount = scanItem.Count % items.NumberOfItems;
