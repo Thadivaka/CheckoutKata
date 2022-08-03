@@ -49,7 +49,10 @@ namespace CheckoutKata
 
         public void Scan(string item)
         {
-            m_ScanItems.Add(item);
+            if(!string.IsNullOrEmpty(item))
+            {
+                m_ScanItems.Add(item);
+            }
         }
     }
 }

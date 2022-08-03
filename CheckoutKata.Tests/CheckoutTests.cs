@@ -346,6 +346,107 @@ namespace CheckoutKata.Tests
             Assert.AreEqual(result, 190);
         }
         [TestMethod]
+        public void GetTotalPrice_RuleChange_Sku_A_3_B_2_C_4_D_5_E_1()
+        {
+            IEnumerable<StockUnit> rules = new List<StockUnit>
+            {
+                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
+                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
+                new StockUnit { SkuName = "C", Price = 20, NumberOfItems = 4, DiscountPrice = 60 },
+                new StockUnit { SkuName = "D", Price = 15, NumberOfItems = 5, DiscountPrice = 55 },
+                new StockUnit { SkuName = "E", Price = 100 }
+            };
+            ICheckout checkout = new Checkout(rules);
+            checkout.Scan("A");
+            checkout.Scan("B");
+            checkout.Scan("A");
+            checkout.Scan("c");
+            checkout.Scan("B");
+            checkout.Scan("c");
+            checkout.Scan("d");
+            checkout.Scan("c");
+            checkout.Scan("c");
+            checkout.Scan("d");
+            checkout.Scan("d");
+            checkout.Scan("A");
+            checkout.Scan("d");
+            checkout.Scan("d");
+            checkout.Scan("e");
+
+            var result = checkout.GetTotalPrice();
+
+            Assert.AreEqual(result, 390);
+        }
+        [TestMethod]
+        public void GetTotalPrice_Adding_Empty_Sku()
+        {
+            IEnumerable<StockUnit> rules = new List<StockUnit>
+            {
+                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
+                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
+                new StockUnit { SkuName = "C", Price = 20, NumberOfItems = 4, DiscountPrice = 60 },
+                new StockUnit { SkuName = "D", Price = 15, NumberOfItems = 5, DiscountPrice = 55 }
+            };
+            ICheckout checkout = new Checkout(rules);
+            checkout.Scan("A");
+            checkout.Scan(string.Empty);
+
+            var result = checkout.GetTotalPrice();
+
+            Assert.AreEqual(result, 50);
+        }
+        [TestMethod]
+        public void GetTotalPrice_Adding_Null_Sku()
+        {
+            IEnumerable<StockUnit> rules = new List<StockUnit>
+            {
+                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
+                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
+                new StockUnit { SkuName = "C", Price = 20, NumberOfItems = 4, DiscountPrice = 60 },
+                new StockUnit { SkuName = "D", Price = 15, NumberOfItems = 5, DiscountPrice = 55 }
+            };
+            ICheckout checkout = new Checkout(rules);
+            checkout.Scan("A");
+            checkout.Scan(null);
+
+            var result = checkout.GetTotalPrice();
+
+            Assert.AreEqual(result, 50);
+        }
+        [TestMethod]
+        public void GetTotalPrice_Adding_NonConfigure_Sku()
+        {
+            IEnumerable<StockUnit> rules = new List<StockUnit>
+            {
+                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
+                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
+                new StockUnit { SkuName = "C", Price = 20, NumberOfItems = 4, DiscountPrice = 60 },
+                new StockUnit { SkuName = "D", Price = 15, NumberOfItems = 5, DiscountPrice = 55 }
+            };
+            ICheckout checkout = new Checkout(rules);
+            checkout.Scan("F");
+
+            var result = checkout.GetTotalPrice();
+
+            Assert.AreEqual(result, 0);
+        }
+        [TestMethod]
+        public void GetTotalPrice_GetTotalPrice_Without_Scan()
+        {
+            IEnumerable<StockUnit> rules = new List<StockUnit>
+            {
+                new StockUnit { SkuName = "A", Price = 50, NumberOfItems = 3, DiscountPrice = 130 },
+                new StockUnit { SkuName = "B", Price = 30, NumberOfItems = 2, DiscountPrice = 45 },
+                new StockUnit { SkuName = "C", Price = 20, NumberOfItems = 4, DiscountPrice = 60 },
+                new StockUnit { SkuName = "D", Price = 15, NumberOfItems = 5, DiscountPrice = 55 }
+            };
+            ICheckout checkout = new Checkout(rules);
+
+            var result = checkout.GetTotalPrice();
+
+            Assert.AreEqual(result, 0);
+        }
+        [TestMethod]
         public void GetTotalPrice_Adding_NonSystematic_Sku_A_5_B_5_C_1_D_1()
         {
             IEnumerable<StockUnit> rules = new List<StockUnit>
