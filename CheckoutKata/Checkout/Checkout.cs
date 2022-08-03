@@ -18,28 +18,28 @@ namespace CheckoutKata
         public int GetTotalPrice()
         {
             int totalPrice = 0;
-            var scanData = (from c in m_ScanItems
-                            group c by c into g
-                            select new Scan { Sku = g.Key, Count = g.Count() }).ToList();
-            foreach (var scanItem in scanData)
+            var groupByScanItems = (from scanItem in m_ScanItems
+                            group scanItem by scanItem into groupItems
+                            select new Scan { Sku = groupItems.Key, Count = groupItems.Count() }).ToList();
+            foreach (var scanItemGroup in groupByScanItems)
             {
-                if (_stockUnits.Any(k => k.SkuName.ToLower() == scanItem.Sku.ToLower()))
+                if (_stockUnits.Any(k => k.SkuName.ToLower() == scanItemGroup.Sku.ToLower()))
                 {
-                    var items = _stockUnits.Where(km => km.SkuName.ToLower() == scanItem.Sku.ToLower())
+                    var filteringStockUnit = _stockUnits.Where(km => km.SkuName.ToLower() == scanItemGroup.Sku.ToLower())
                                                     .Select(x => new { x.Price, x.NumberOfItems, x.DiscountPrice }).FirstOrDefault();
-                    if (items.NumberOfItems > 1)
+                    if (filteringStockUnit.NumberOfItems > 1)
                     {
-                        var discountCount = scanItem.Count / items.NumberOfItems;
-                        var nonDisountCount = scanItem.Count % items.NumberOfItems;
+                        var discountCount = scanItemGroup.Count / filteringStockUnit.NumberOfItems;
+                        var nonDisountCount = scanItemGroup.Count % filteringStockUnit.NumberOfItems;
 
-                        var itemSpecialPrice = discountCount * items.DiscountPrice;
-                        var itemNormalPrice = nonDisountCount * items.Price;
+                        var itemDiscountPrice = discountCount * filteringStockUnit.DiscountPrice;
+                        var itemNormalPrice = nonDisountCount * filteringStockUnit.Price;
 
-                        totalPrice += itemSpecialPrice + itemNormalPrice;
+                        totalPrice += itemDiscountPrice + itemNormalPrice;
                     }
                     else
                     {
-                        totalPrice += scanItem.Count * items.Price;
+                        totalPrice += scanItemGroup.Count * filteringStockUnit.Price;
                     }
 
                 }
