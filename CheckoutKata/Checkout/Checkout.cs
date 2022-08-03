@@ -17,12 +17,19 @@ namespace CheckoutKata
         }
         public int GetTotalPrice()
         {
-            throw new NotImplementedException();
+            int totalPrice = 0;
+            foreach(var item in m_ScanItems)
+            {
+                var itemPrice = _stockUnits.Where(s => s.SkuName == item).Select(x => x.Price).FirstOrDefault();
+
+                totalPrice += itemPrice;
+            }
+            return totalPrice;
         }
 
         public void Scan(string item)
         {
-            throw new NotImplementedException();
+            m_ScanItems.Add(item);
         }
     }
 }
