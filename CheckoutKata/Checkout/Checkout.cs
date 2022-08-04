@@ -46,7 +46,7 @@ namespace CheckoutKata
                     var filteringStockUnit = _stockUnits.Where(km => km.SkuName.ToLower() == scanItemGroup.Sku.ToLower())
                                                     .Select(x => new { x.UnitPrice, x.Volume, x.SpecialPrice }).FirstOrDefault();
 
-                    // Calculate the discount with number of items greater than 1
+                    // Calculate the discount with volume greater than 1
                     if (filteringStockUnit.Volume > 1)
                     {
                         // This produces the quotient of the scan items count and volume
